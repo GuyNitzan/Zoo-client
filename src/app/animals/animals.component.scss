@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+.button {
+  background-color: #95A5A6;
+  height: 25px;
+}
+.row {
+  height: 10px;
+}
+.trash {
+  border: transparent;
+  background: transparent;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+    color: #95A5A6;
+}
+body {
+  font-family: 'lato', sans-serif;
+}
+.container {
+  opacity: 0.8;
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 30px;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+  small {
+    font-size: 0.5em;
+  }
+}
+
+.responsive-table {
+  width: 800px;
+  li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .table-header {
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    vertical-align: middle;
+  }
+  .col-flex {
+    flex-basis: 20%;
+  }
+
+  @media all and (max-width: 767px) {
+    .table-header {
+      display: none;
+    }
+    .table-row{
+
+    }
+    li {
+      display: block;
+    }
+    .col {
+
+      flex-basis: 100%;
+
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+         color: #6C7A89;
+         padding-right: 10px;
+         content: attr(data-label);
+         flex-basis: 50%;
+         text-align: right;
+       }
+    }
+  }
+}
+.head {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: 'Varela Round';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: sandybrown;
+
+}
+.add-animals {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 50px;
+  color: #333;
+  background: #95A5A6;
+  font-weight: bold;
+  margin-top: 25px;
+  box-shadow: 0 3px 20px 0 #0000003b;
+
+}
+.middle {
+  text-align: center;
+  margin-top: 50px;
+  padding-right: 80px;
+}

@@ -1,0 +1,44 @@
+<div class="container">
+  <ul class="responsive-table" matSort (matSortChange)="sortData($event)">
+    <li class="table-header">
+      <div class="col col-flex" mat-sort-header="animal">Animal</div>
+      <div class="col col-flex" mat-sort-header="quantity">Quantity</div>
+      <div class="col col-flex" mat-sort-header="section">Section</div>
+      <div class="col col-flex" mat-sort-header="food">Food</div>
+      <div class="col col-flex"></div>
+    </li>
+    <li *ngFor="let animal of animals" class="table-row row">
+      <div class="col col-flex" data-label="Animal">{{animal.name}}</div>
+      <div class="col col-flex" data-label="Quantity">{{animal.quantity}}</div>
+      <div class="col col-flex" data-label="Section">{{animal.section}}</div>
+      <div class="col col-flex" data-label="Food">{{animal.food}}</div>
+      <div class="col col-flex center" data-label="Actions">
+        <a routerLink="/manage-zoo" [queryParams]=animal>
+          <button class="button">
+            update
+          </button>
+        </a>
+        <button (click)="deleteAnimal(animal)" class="trash">
+          <mat-icon class="icon">
+            delete
+          </mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+<div *ngIf="animals.length === 0" class="middle">
+  <div>
+    <h1 class="head">
+      No animals in the zoo..
+    </h1>
+  </div>
+  <div>
+    <a routerLink="/manage-zoo">
+      <button class="add-animals">
+        Add some animals
+      </button>
+    </a>
+  </div>
+</div>
+

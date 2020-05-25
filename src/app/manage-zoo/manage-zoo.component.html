@@ -1,0 +1,75 @@
+<div  class="container">
+  <form [formGroup]="zooManagementForm" class="padding">
+    <div>
+      <mat-radio-group formControlName="actionType" aria-label="Select an action">
+        <mat-radio-button value="addAnimal" ngDefaultControl>
+          Add Animal
+        </mat-radio-button>
+        <mat-radio-button value="updateAnimal" class="margin-left" ngDefaultControl>
+          Update Animal
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="margin-top" *ngIf="zooManagementForm.controls.actionType.value === 'updateAnimal'">
+      <mat-form-field>
+        <mat-label>Select Animal</mat-label>
+        <mat-select formControlName="selectedAnimal">
+          <mat-option *ngFor="let animal of animals" [value]="animal.name" ngDefaultControl>
+            {{animal.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="margin-top" *ngIf="zooManagementForm.controls.actionType.value === 'addAnimal'">
+      <mat-form-field>
+        <mat-label>Insert New Animal</mat-label>
+        <input matInput formControlName="newAnimal" placeholder="For example: Kangaroo">
+        <mat-error *ngIf="zooManagementForm.controls.newAnimal.errors && zooManagementForm.controls.newAnimal.errors.multipleValues">
+          This animal already exists in the zoo
+        </mat-error>
+        <mat-error *ngIf="zooManagementForm.controls.newAnimal.errors && zooManagementForm.controls.newAnimal.errors.required">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-label>Select Quantity</mat-label><br>
+      <mat-slider min="1" max="100" step="1" thumbLabel tickInterval="1" value="1" class="slider" formControlName="quantity">
+      </mat-slider>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Zoo Section</mat-label>
+        <input matInput formControlName="section" placeholder="">
+        <mat-error *ngIf="zooManagementForm.controls.section.errors && zooManagementForm.controls.section.errors.multipleValues">
+          This section is already occupied
+        </mat-error>
+        <mat-error *ngIf="zooManagementForm.controls.section.errors && zooManagementForm.controls.section.errors.required">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Food</mat-label>
+        <input matInput formControlName="food" placeholder="">
+        <mat-error *ngIf="zooManagementForm.controls.food.errors">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="margin-top-double">
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="isSubmissionDisabled()"
+              (click)="onFormSubmit()">
+        Submit
+      </button>
+      <button mat-raised-button class="margin-left" color="warn"
+              [disabled]="zooManagementForm.controls.actionType.value === 'addAnimal' ||
+                !zooManagementForm.controls.selectedAnimal.value"
+              (click)="removeAnimal()">
+        Remove Animal
+      </button>
+    </div>
+  </form>
+</div>

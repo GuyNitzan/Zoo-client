@@ -1,0 +1,9 @@
+.background {;
+  background-image: url('https://images.wallpapersden.com/image/download/planet-zoo_64421_3840x2160.jpg');
+  height: 100%;
+  background-size: cover;
+  overflow: auto;
+}
+.nav-bar {
+  margin-left: 20%;
+}

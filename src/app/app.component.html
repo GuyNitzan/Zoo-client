@@ -1,0 +1,18 @@
+<div class="background">
+  <nav mat-tab-nav-bar class="nav-bar">
+
+    <a mat-tab-link routerLink="/home" routerLinkActive #homeTab="routerLinkActive" [active]="homeTab.isActive">
+      Home
+    </a>
+    <a mat-tab-link routerLink="/animals" routerLinkActive #animalTab="routerLinkActive" [active]="animalTab.isActive">
+      Animals
+    </a>
+    <a mat-tab-link routerLink="/manage-zoo" routerLinkActive #manageZooTab="routerLinkActive" [active]="manageZooTab.isActive">
+      Manage Zoo
+    </a>
+
+  </nav>
+
+  <router-outlet></router-outlet>
+
+</div>

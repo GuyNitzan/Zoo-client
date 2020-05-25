@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  {{message}}
+</div>
+<div mat-dialog-actions class="relative">
+  <button class="left" mat-button (click)="closeModal()">
+    No
+  </button>
+  <button class="right" mat-button [mat-dialog-close]="true" cdkFocusInitial>
+    Yes
+  </button>
+</div>
