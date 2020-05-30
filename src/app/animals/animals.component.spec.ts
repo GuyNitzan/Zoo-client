@@ -4,7 +4,6 @@ import { AnimalsComponent } from './animals.component';
 import {HttpClient} from '@angular/common/http';
 import {MatDialog} from '@angular/material/dialog';
 import {ZooService} from '../zoo.service';
-import {of} from 'rxjs';
 import {MockZooService} from '../mock.zoo.service';
 
 describe('AnimalsComponent', () => {
